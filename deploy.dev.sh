@@ -7,7 +7,7 @@ TIMEOUT=1800
 PORT=3000
 
 # Paths
-PROJECT_DIR="/app"
+PROJECT_DIR="/home/gideon/Desktop/PERSONAL/etl-api-assessment"
 
 
 gunicorn $FLASK_WSGI_MODULE:app \
@@ -21,9 +21,8 @@ gunicorn $FLASK_WSGI_MODULE:app \
 --worker-class=gevent \
 --pid=$PIDFILE 
 
-
-
 # --daemon
+
 # LOGS="${PROJECT_DIR}/logs/speed_logs.log"
 # ERRORS_LOGS="${PROJECT_DIR}/logs/speed_logs.err"
 # --log-file $LOGS \

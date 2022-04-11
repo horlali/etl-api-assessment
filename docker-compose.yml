@@ -1,9 +1,13 @@
-app:
-  build: .
-  command: python -u app.py
-  ports:
-    - "5000:5000"
-  volumes:
-    - .:/app
+version: '3.7'
+
+services:
+  api:
+    build: .
+    command: ./deploy.sh
+    restart: always
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
 
 
