@@ -23,6 +23,8 @@ def upload_csv():
         if csv.filename == "":
             return jsonify({"Error": "file not selected"}), 400
 
+    all_data = []
+
     for csv in csv_files:
         if not allowed_file(csv.filename):
             return jsonify({"Error":"Invalid file mime-type, please upload a csv file"}), 400
@@ -41,8 +43,9 @@ def upload_csv():
         )
         data.save()
 
+        all_data.append(data.to_json())
     
-    resp = {"status": "success","detail": "ETL Successfully","data": data.to_json()}
+    resp = {"status": "success","detail": "ETL Successfully","data": all_data}
 
     return jsonify(resp)
 
