@@ -8,3 +8,4 @@ python-dotenv
 gunicorn
 boto3
 gevent
+sentry-sdk[flask]

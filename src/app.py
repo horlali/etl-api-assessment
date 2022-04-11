@@ -1,10 +1,19 @@
+import sentry_sdk
 from flask import Flask, jsonify
+from sentry_sdk.integrations.flask import FlaskIntegration
+from src.config.settings import SENTRY_DSN
 from src.models.database import db
 from src.blueprint.etl import etl_bp
 
 
 
 def create_app(config_object="src.config.settings"):
+
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[FlaskIntegration()],
+        traces_sample_rate=1.0
+    )
 
     api = Flask(__name__)
     api.config.from_object(config_object)
@@ -25,6 +34,10 @@ def create_app(config_object="src.config.settings"):
     @api.errorhandler(500)
     def hande_500(e):
         return jsonify({"error": "I'm on a coffee break, I will comeback right quick"})
+
+    @api.get('/debug-sentry')
+    def trigger_error():
+        division_by_zero = 1 / 0
 
     return api
 
