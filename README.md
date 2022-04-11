@@ -18,4 +18,3 @@ flask run
 ### Making a request
 Use postman or thunder client or any other client to make a request to the endpoint
 
-

@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 from pandas import read_csv
 
 
@@ -11,4 +10,3 @@ class ExtractTransformLoad:
         self.number_of_rows, self.number_of_columns = self.data.shape
         self.file_size  = float(os.stat(csv_file).st_size / 1024)
         self.content = self.data.to_dict('records')
-        self.columns_name = self.data.columns[0]
