@@ -7,7 +7,9 @@ from src.services.etl_process import ExtractTransformLoad
 from src.utils.helpers import allowed_file
 
 
+
 etl_bp = Blueprint(name="main",import_name=__name__)
+
 
 @etl_bp.route("/upload-csv", methods=["POST"])
 def upload_csv():
@@ -43,7 +45,5 @@ def upload_csv():
     resp = {"status": "success","detail": "ETL Successfully","data": data.to_json()}
 
     return jsonify(resp)
-
-
 
 

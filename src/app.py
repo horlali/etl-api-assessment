@@ -23,7 +23,7 @@ def create_app(config_object="src.config.settings"):
 
     @api.get("/")
     def welcome():
-        return jsonify({"detail":"Hello World, Welcome Here"})
+        return jsonify({"detail":"Hello World, Welcome Here"}), 200
 
 
     @api.errorhandler(404)
@@ -33,12 +33,8 @@ def create_app(config_object="src.config.settings"):
     
     @api.errorhandler(500)
     def hande_500(e):
-        return jsonify({"error": "I'm on a coffee break, I will comeback right quick"})
-
-    @api.get('/debug-sentry')
-    def trigger_error():
-        division_by_zero = 1 / 0
+        return jsonify(
+            {"error": "I'm on a coffee break, I will comeback right quick"}), 500
 
     return api
-
 
