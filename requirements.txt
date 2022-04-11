@@ -1,0 +1,9 @@
+flask
+pymongo
+Flask-Pymongo
+flask-mongoengine
+dnspython
+pandas
+python-dotenv
+gunicorn
+boto3
