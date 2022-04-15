@@ -5,16 +5,11 @@ To get the application up and running locally, make sure you have python install
 Clone and cd into the project
 run:
 ```
-pip install -r requirements.txt
+docker-compose up --build
 ```
 Edit the environment variables with your preferred details. 
 >  Note: (You might need to change the database connection string in the  `src.config.settings.py` file )
 
-run:
-```
-flask run
-```
-
-### Making a request
-Use postman or thunder client or any other client to make a request to the endpoint
+### View API documentation here
+[API Documentation](https://superfluid-api.herokuapp.com/)
 
