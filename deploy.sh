@@ -22,9 +22,3 @@ gunicorn $FLASK_WSGI_MODULE:app \
 --pid=$PIDFILE 
 
 
-
-# --daemon
-# LOGS="${PROJECT_DIR}/logs/speed_logs.log"
-# ERRORS_LOGS="${PROJECT_DIR}/logs/speed_logs.err"
-# --log-file $LOGS \
-# --error-logfile $ERRORS_LOGS \
